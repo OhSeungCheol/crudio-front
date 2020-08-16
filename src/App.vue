@@ -1,20 +1,21 @@
 <template>
   <div id="app">
       <main-header/>
-      <main-sidebar/>
+      <!-- <main-sidebar/> -->
   </div>
 </template>
 
+
 <script>
 import mainHeader from './components/common/Header.vue'
-import mainSidebar from './components/common/Sidebar.vue'
+// import mainSidebar from './components/common/Sidebar.vue'
 
 export default {
   name: 'App',
   components: {
     mainHeader ,
-    mainSidebar
-  }
+    // mainSidebar
+  },
 }
 </script>
 
