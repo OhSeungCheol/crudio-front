@@ -1,15 +1,10 @@
 <template>
-  <div>
-    <b-button v-b-toggle.sidebar-1>Toggle Sidebar</b-button>
-    <b-sidebar id="sidebar-1" title="Sidebar" shadow>
-      <div class="px-3 py-2">
-        <p>
-          Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
-          in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-        </p>
-        <b-img src="https://picsum.photos/500/500/?image=54" fluid thumbnail></b-img>
-      </div>
-    </b-sidebar>
+  <div id='main-div'>
+    <div id='sub-div'>
+      <div class='menu'>Dash Board</div>
+      <div class='menu'>Post</div>
+      <div class='menu'>Manage</div>  
+    </div>
   </div>
 </template>
 
@@ -20,5 +15,19 @@
 </script>
 
 <style scoped>
-    
+    #main-div {
+      position: fixed;
+      height: 100%;
+      width: 220px;
+      background: #333333;
+      color: white;
+      z-index: -1;
+    }
+    #sub-div {
+      padding-top: 60px;
+      font-size: 20px;
+    }
+    .menu {
+      margin: 6px;
+    }
 </style>
