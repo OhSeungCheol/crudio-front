@@ -4,7 +4,7 @@
             <b-card 
             header-tag="header"
             footer-tag="footer"
-            v-bind:header="item.id"
+            v-bind:header=item.id
             footer="footer & comment"
             >
                 <b-card-text>
