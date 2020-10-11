@@ -16,12 +16,13 @@
 
 <style scoped>
     #main-div {
-      position: fixed;
-      height: 100%;
-      width: 220px;
+      /* position: fixed; */
+      /* height: 100%; */
+      /* width: 220px; */
       background: #333333;
       color: white;
       z-index: -1;
+      display: inline-block;
     }
     #sub-div {
       padding-top: 60px;

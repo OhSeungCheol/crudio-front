@@ -13,6 +13,9 @@ Vue.use(BootstrapVueIcons)
 Vue.use(BootstrapVue);
 // bootstrap vue 설정
 
+import router from './router/MainRouter';
+
 new Vue({
   render: h => h(App),
+  router,
 }).$mount('#app')
