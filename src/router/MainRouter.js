@@ -7,15 +7,15 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 
-import MainView from '../views/PostsView.vue';
-import PostsView from '../views/MainView.vue';
+import MainView from '../views/MainView.vue';
+import PostsView from '../views/PostsView.vue';
 
 // 라우터 객체 생성
 const router = new VueRouter({
-  mode: history,
+//   mode: history,
   routes: [
-    { path: '/mainView', component: MainView },
-    { path: '/postsView', component: PostsView }
+    { path: '/', component: MainView },
+    { path: '/posts', component: PostsView }
   ]
 })
 

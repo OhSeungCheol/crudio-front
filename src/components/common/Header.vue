@@ -1,14 +1,21 @@
 <template>
   <b-navbar toggleable="lg" type="dark" variant="info">
-    <b-navbar-brand href="#"><h1>Crud-IO</h1></b-navbar-brand>
-    <b-navbar-brand href="#">NavBar</b-navbar-brand>
-    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+    <router-link to="/">
+      <b-navbar-brand>
+       <h1>Crud-IO</h1>
+      </b-navbar-brand>
+    </router-link>
+    <router-link to="/posts">
+      <b-navbar-brand>Posts</b-navbar-brand>
+    </router-link>
 
     <b-collapse id="nav-collapse" is-nav>
-      <b-navbar-nav>
-        <b-nav-item href="#">Link</b-nav-item>
+      <!-- <b-navbar-nav>
+        <router-link to="/"> <b-nav-item href="#">foo </b-nav-item></router-link>
         <b-nav-item href="#" disabled>Disabled</b-nav-item>
-      </b-navbar-nav>
+        
+        <router-link to="bar">bar </router-link>
+      </b-navbar-nav> -->
 
 <!-- 드롭박스 버튼 -->
       <!-- <b-navbar-nav class="ml-auto">
@@ -32,18 +39,18 @@
 </template>
 
 <script>
+  import mainRouter from '../../router/MainRouter';
     export default {
+      components: mainRouter,
     }
 </script>
 
 <style scoped>
 header {
-  /* position: fixed; */
   width: 100%;
   height: 60px;
   font-weight: bold;
   color: white;
-  /* background-color: teal; */
   background-color: #7386D5;
   align-items: center;
   display: flex;
