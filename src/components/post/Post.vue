@@ -1,5 +1,5 @@
 <template>
-    <div id='top-div'>
+    <div id='post-top-div'>
         <b-card-group deck>
             <b-card 
             header-tag="header"
@@ -22,10 +22,8 @@ export default {
 </script>
 
 <style scoped>
-    #top-div {
+    #post-top-div {
         padding-top: 30px;
         padding-bottom: 30px;
-        padding-left: 300px;
-        padding-right: 300px;
     }
 </style>

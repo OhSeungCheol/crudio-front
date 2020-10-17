@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <div id='post-view-top-div'>
+        <input-post/>
         <div v-for="item in items" :key="item.id">
             <post v-bind:item="item"/>
         </div>
@@ -9,10 +10,12 @@
 <script>
 import Post from '../components/post/Post.vue';
 import dummyPosts from '../dummyData/PostsData';
+import inputPost from '../components/post/InputPost.vue';
 
 export default {
     components: {
-        Post
+        Post,
+        inputPost
     },
     data: () => {
         return {
@@ -23,4 +26,10 @@ export default {
 </script>
 
 <style scoped>
+    #post-view-top-div {
+        /* padding-top: 30px; */
+        /* padding-bottom: 30px; */
+        padding-left: 300px;
+        padding-right: 300px;
+    }
 </style>
