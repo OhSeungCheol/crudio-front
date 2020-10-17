@@ -12,7 +12,7 @@ import PostsView from '../views/PostsView.vue';
 
 // 라우터 객체 생성
 const router = new VueRouter({
-//   mode: history,
+  mode: 'history',
   routes: [
     { path: '/', component: MainView },
     { path: '/posts', component: PostsView }
