@@ -16,9 +16,12 @@
     
     <v-spacer></v-spacer>
         <v-tabs align-with-title>
-          <v-tab>Posts</v-tab>
-          <v-tab>Tab 2</v-tab>
-          <v-tab>Tab 3</v-tab>
+          <v-tab>
+            <router-link to="/" tag="div">Main</router-link>
+          </v-tab>
+          <v-tab>
+            <router-link to="/posts" tag="div">Post </router-link>
+          </v-tab>
         </v-tabs>
 
     <v-btn icon>
@@ -35,4 +38,7 @@
 </script>
 
 <style scoped>
+  .logo{
+    text-decoration: none;
+  }
 </style>
