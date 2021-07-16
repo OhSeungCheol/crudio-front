@@ -1,11 +1,11 @@
 <template>
   
 <v-app>
-  <v-navigation-drawer app>
+  <v-navigation-drawer app clipped>
     <!-- -->
   </v-navigation-drawer>
 
-  <v-app-bar app>
+  <v-app-bar app clipped-left='true'>
     <!-- -->
   </v-app-bar>
 
