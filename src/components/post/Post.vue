@@ -1,5 +1,8 @@
 <template>
-    <div id='post-top-div'>
+    <div>
+       POST 
+    </div>
+    <!-- <div id='post-top-div'>
         <b-card-group deck>
             <b-card 
             header-tag="header"
@@ -12,7 +15,7 @@
                 </b-card-text>
             </b-card>
         </b-card-group>
-    </div>
+    </div> -->
 </template>
 
 <script>
