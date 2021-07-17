@@ -7,7 +7,7 @@ import router from './router/MainRouter';
 
 import vuetify from './plugins/vuetify'
 new Vue({
-  render: h => h(App),
-  vuetify,
-  router
+    render: h => h(App),
+    vuetify,
+    router
 }).$mount('#app')

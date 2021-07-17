@@ -14,25 +14,25 @@ import Dashboard from '../components/common/Dashboard';
 
 // 라우터 객체 생성
 const router = new VueRouter({
-  mode: 'history',
-  routes: [
+    mode: 'history',
+    routes: [
     { 
-      path: '/', 
-      component: MainView,
+        path: '/', 
+        component: MainView,
     },
     { 
-      path: '*',
-      component: Contents,
-      children:[
+        path: '*',
+        component: Contents,
+        children:[
         {
-          path: 'dashboard', component: Dashboard, name: 'contents'
+            path: 'dashboard', component: Dashboard, name: 'contents'
         },
         {
-          path: 'posts', component: PostsView, name: 'contents'
+            path: 'posts', component: PostsView, name: 'contents'
         }
-      ]
+        ]
     },
-  ]
+    ]
 })
 
 export default router;

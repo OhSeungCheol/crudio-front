@@ -1,9 +1,8 @@
 <template>
-  
-<v-app>
-  <common-header></common-header>
-  <router-view></router-view>
-</v-app>
+    <v-app>
+        <common-header></common-header>
+        <router-view></router-view>
+    </v-app>
 </template>
 
 <script>
