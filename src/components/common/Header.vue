@@ -1,10 +1,12 @@
 <template>
     <v-app-bar app clipped-left color="teal accent-3">
+
     <v-btn
       elevation="2"
-      fab
       small
+      fab
       to="/"
+      @click="selectMain"
     >
       <v-icon>mdi-cursor-default</v-icon>
     </v-btn>
@@ -14,10 +16,10 @@
         Crudio
       </h4>
     </v-toolbar-title>
-    
-    <v-spacer></v-spacer>
-    <v-tabs align-with-title>
-      <v-tab to="dashboard" tag="div">Dashboard</v-tab>
+
+    <v-tabs v-model="selectedTab" align-with-title>
+      <v-tab class="pa-0 ma-0" style="min-width:0px" key='0'/>
+      <v-tab to="dashboard" tag="div" @click='log'>Dashboard</v-tab>
       <v-tab to="posts" tag="div">Post</v-tab>
     </v-tabs>
 
@@ -30,12 +32,19 @@
 <script>
   import mainRouter from '../../router/MainRouter';
     export default {
+      data: () => ({
+        selectedTab: 0,
+      }),
+      methods: {
+        // 각 탭을 선택 시, 언더라인 효과가 생김. 
+        // 크기 0의 탭을 생성 하여, 메인화면 이동 시 해당 더미 탭이 선택되어 언더라인이 안보이도록 작업
+        selectMain() {
+          this.selectedTab = 0;
+        }
+      },
       components: mainRouter,
     }
 </script>
 
 <style scoped>
-  .logo{
-    text-decoration: none;
-  }
 </style>
