@@ -1,10 +1,12 @@
 <template>
-    <div id='post-view-top-div'>
-        <input-post/>
-        <div v-for="item in items" :key="item.id">
-            <post v-bind:item="item"/>
-        </div>
-    </div>    
+    <v-main>
+        <div id='post-view-top-div'>
+            <input-post/>
+            <div v-for="item in items" :key="item.id">
+                <post v-bind:item="item"/>
+            </div>
+        </div>    
+    </v-main>
 </template>
 
 <script>
@@ -29,7 +31,7 @@ export default {
     #post-view-top-div {
         /* padding-top: 30px; */
         /* padding-bottom: 30px; */
-        padding-left: 300px;
-        padding-right: 300px;
+        /* padding-left: 300px; */
+        /* padding-right: 300px; */
     }
 </style>

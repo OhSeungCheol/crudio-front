@@ -1,6 +1,7 @@
 <template>
     <div>
         <v-navigation-drawer app clipped>
+            <sidebar></sidebar>
         </v-navigation-drawer>
         
         <v-main>
@@ -15,6 +16,12 @@
 </template>
 
 <script>
+    import Sidebar from './Sidebar.vue';
+    export default {
+        components: {
+            Sidebar,
+        }
+    }
 </script>
 
 <style scoped>

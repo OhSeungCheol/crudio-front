@@ -1,30 +1,70 @@
 <template>
-    <div>
-        <b-button v-b-toggle.sidebar-no-header>Toggle Sidebar</b-button>
-        <b-sidebar id="sidebar-no-header" aria-labelledby="sidebar-no-header-title" no-header shadow>
-        <template #default="{ hide }">
-            <div class="p-3">
-            <h4 id="sidebar-no-header-title">Custom header sidebar</h4>
-            <p>
-                Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
-                in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-            </p>
-            <nav class="mb-3">
-                <b-nav vertical>
-                <b-nav-item active @click="hide">Active</b-nav-item>
-                <b-nav-item href="#link-1" @click="hide">Link</b-nav-item>
-                <b-nav-item href="#link-2" @click="hide">Another Link</b-nav-item>
-                </b-nav>
-            </nav>
-            <b-button variant="primary" block @click="hide">Close Sidebar</b-button>
-            </div>
-        </template>
-        </b-sidebar>
-    </div>
+  <v-card
+    height="100%"
+    width="256"
+    class="mx-auto"
+  >
+    <v-navigation-drawer permanent>
+              <template v-slot:prepend>
+        <v-list-item two-line>
+          <v-list-item-avatar>
+            <img src="https://randomuser.me/api/portraits/women/81.jpg">
+          </v-list-item-avatar>
+
+          <v-list-item-content>
+            <v-list-item-title>Jane Smith</v-list-item-title>
+            <v-list-item-subtitle>Logged In</v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+      </template>
+
+      <v-divider></v-divider>
+      <v-list-item>
+        <v-list-item-content>
+          <v-list-item-title class="text-h6">
+            Application
+          </v-list-item-title>
+          <v-list-item-subtitle>
+            subtext
+          </v-list-item-subtitle>
+        </v-list-item-content>
+      </v-list-item>
+
+      <v-divider></v-divider>
+
+      <v-list
+        dense
+        nav
+      >
+        <v-list-item
+          v-for="item in items"
+          :key="item.title"
+          link
+        >
+          <v-list-item-icon>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+  </v-card>
 </template>
 
 <script>
+  export default {
+    data () {
+      return {
+        items: [
+          { title: 'Dashboard', icon: 'mdi-view-dashboard' },
+          { title: 'Photos', icon: 'mdi-image' },
+          { title: 'About', icon: 'mdi-help-box' },
+        ],
+        right: null,
+      }
+    },
+  }
 </script>
-
-<style scoped>
-</style>

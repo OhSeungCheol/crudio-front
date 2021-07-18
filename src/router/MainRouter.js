@@ -21,15 +21,16 @@ const router = new VueRouter({
         component: MainView,
     },
     { 
+        path: '/posts', 
+        component: PostsView
+    },
+    { 
         path: '*',
         component: Contents,
         children:[
-        {
-            path: 'dashboard', component: Dashboard, name: 'contents'
-        },
-        {
-            path: 'posts', component: PostsView, name: 'contents'
-        }
+            {
+                path: 'dashboard', component: Dashboard
+            },
         ]
     },
     ]
