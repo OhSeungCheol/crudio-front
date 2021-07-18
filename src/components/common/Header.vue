@@ -19,7 +19,7 @@
         <v-tabs v-model="selectedTab" align-with-title>
             <v-tab class="pa-0 ma-0" style="min-width:0px" key='0'/>
             <v-tab to="dashboard" tag="div">Dashboard</v-tab>
-            <v-tab to="posts" tag="div">Post</v-tab>
+            <v-tab to="posts" tag="div">Posts</v-tab>
         </v-tabs>
 
         <v-btn icon>
