@@ -5,12 +5,12 @@
         shaped
     >
         <v-card-title>
-            {{item.name}}
+            {{item.message}}
         </v-card-title>
         <!-- <v-card-subtitle> -->
         <!-- </v-card-subtitle> -->
         <v-card-text>
-            {{item.message}}
+            {{item.name}}
         </v-card-text>
         <!-- <v-card-actions> -->
         <!-- </v-card-actions> -->
