@@ -1,38 +1,33 @@
 <template>
     <div>
-        <span>Post Card</span>
-        <br>
-        <br>
         <v-textarea
-          outlined
-          name='input-7-4'
-          label='Outlined textarea'
-          background-color='white'
-          v-model='message'
+            outlined
+            name='input-7-4'
+            label='Post Creator'
+            background-color='white'
+            v-model='message'
+            placeholder="Input your meesages"
+            style="padding-top: 30px"
         ></v-textarea>
-        <p>
-            name : <input type='text' v-model='name' style='background-color:white'>
-        </p>
-        <v-btn @click="emitMessage">Save</v-btn>
+        <v-btn @click="addPostCard">Save</v-btn>
     </div>
 </template>
 
 <script>
     export default {
         data: () => ({
-            name: 'guest',
-            message: 'default message',
+            name: 'Guest',
+            message: '',
         }),
         methods: {
-            emitMessage() {
-                this.$emit("emitMessage", this.getCardInfo());
+            addPostCard() {
+                if(this.message.trim() == ''){
+                    alert('Input your message');
+                    return;
+                } 
+                this.$emit("addPostCard", {name: this.name, message: this.message});
+                this.message = '';
             },
-            getCardInfo() {
-                const card = {};
-                card.name = this.name;
-                card.message = this.message;
-                return card;
-            }
         }
     }
 </script>

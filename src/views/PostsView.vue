@@ -8,7 +8,7 @@
 
             <div class="child" style="flex:4;">
                 <posts-creator
-                    @emitMessage="addPostCard"
+                    @addPostCard="addPostCard"
                 ></posts-creator>
                 <div v-for="item in items.slice().reverse()" :key="item.id" style="margin-bottom: 30px; margin-top: 30px">
                     <posts-card
