@@ -7,19 +7,19 @@
         <v-card-title>
             {{item.message}}
         </v-card-title>
-        <v-card-text>
-            {{item.name}}
-        </v-card-text>
-        ------------------------------
         <v-card-actions>
-            test2
+            {{item.name}}
         </v-card-actions>
+
+        <comment-creator></comment-creator>
     </v-card>
 </template>
 
 <script>
+    import CommentCreator from '../comment/CommentCreator.vue' 
     export default {
-        props: ['item']
+        components: { CommentCreator },
+        props: ['item'],
     }
 </script>
 
