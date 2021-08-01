@@ -1,15 +1,15 @@
 <template>
     <div id="commentCardDiv">
-            {{item.name}}
+            {{comment.name}}
             <v-card-actions>
-                {{item.message}}
+                {{comment.message}}
             </v-card-actions>
     </div>
 </template>
 
 <script>
     export default {
-        props: ['item'],
+        props: ['comment'],
     }
 </script>
 

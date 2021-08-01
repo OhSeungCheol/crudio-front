@@ -11,13 +11,16 @@
             {{item.message}}
         </v-card-actions>
 
-        <comment-creator></comment-creator>
-        <comment-card
-            v-bind:item="item"
-        ></comment-card>
-        <comment-card
-            v-bind:item="item"
-        ></comment-card>
+        <comment-creator
+            @addCommentCard="addCommentCard"
+        ></comment-creator>
+        <div v-for="comment in comments" :key="comment">
+            <comment-card
+                v-bind:comment="comment"
+            ></comment-card>
+        </div>
+
+        
     </v-card>
 </template>
 
@@ -30,6 +33,21 @@
             , CommentCard
         },
         props: ['item'],
+        methods: {
+            addCommentCard(comment){
+                this.comments.push(comment)
+            }
+        },
+        data: () => {
+            return {
+                comments: [
+                    {
+                        name: 'tempName',
+                        message: 'tempMessage',
+                    }
+                ]
+            }
+        }
     }
 </script>
 

@@ -52,10 +52,4 @@ export default {
 </script>
 
 <style scoped>
-    #post-view-top-div {
-        /* padding-top: 30px; */
-        /* padding-bottom: 30px; */
-        /* padding-left: 300px; */
-        /* padding-right: 300px; */
-    }
 </style>

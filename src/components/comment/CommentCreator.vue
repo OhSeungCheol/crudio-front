@@ -6,34 +6,33 @@
 			lazy-validation
 		>
 			<v-text-field
-				v-model="name"
+				v-model="message"
 				:counter="10"
-				:rules="nameRules"
 				label="Comment"
 				required
 			></v-text-field>
 
 		</v-form>
-        <v-btn>Save</v-btn>
+        <v-btn @click="addCommentCard">Save</v-btn>
     </div>
 </template>
 
 <script>
     export default {
-        // data: () => ({
-        //     name: 'Guest',
-        //     message: '',
-        // }),
-        // methods: {
-        //     addPostCard() {
-        //         if(this.message.trim() == ''){
-        //             alert('Input your message');
-        //             return;
-        //         } 
-        //         this.$emit("addPostCard", {name: this.name, message: this.message});
-        //         this.message = '';
-        //     },
-        // }
+        data: () => ({
+            name: 'Guest',
+            message: '',
+        }),
+        methods: {
+            addCommentCard() {
+                if(this.message.trim() == ''){
+                    alert('Input your message');
+                    return;
+                } 
+                this.$emit("addCommentCard", {name: this.name, message: this.message});
+                this.message = '';
+            },
+        }
     }
 </script>
 
