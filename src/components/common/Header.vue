@@ -5,7 +5,7 @@
         small
         fab
         to="/"
-        @click="selectMain"
+        @click="selectExternalTab"
         >
             <v-icon>mdi-cursor-default</v-icon>
         </v-btn>
@@ -20,12 +20,11 @@
             <v-tab class="pa-0 ma-0" style="min-width:0px" key='0'/>
             <v-tab to="news" tag="div">News</v-tab>
             <v-tab to="posts" tag="div">Posts</v-tab>
-            <!-- MyPage 는 추후 우측에 톱니바퀴 아이콘으로 뺄 예정 -->
-            <v-tab to="myPage" tag="div">MyPageButton</v-tab>
+            <v-tab to="about" tag="div">About</v-tab>
         </v-tabs>
 
-        <v-btn icon>
-            <v-icon>mdi-magnify</v-icon>
+        <v-btn icon to="myPage" @click="selectExternalTab">
+            <v-icon >mdi-account</v-icon>
         </v-btn>
     </v-app-bar>
 </template>
@@ -39,7 +38,7 @@
         methods: {
             // 각 탭을 선택 시, 언더라인 효과가 생김. 
             // 크기 0의 탭을 생성 하여, 메인화면 이동 시 해당 더미 탭이 선택되어 언더라인이 안보이도록 작업
-            selectMain() {
+            selectExternalTab() {
                 this.selectedTab = 0;
             }
         },

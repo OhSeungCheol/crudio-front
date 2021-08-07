@@ -10,6 +10,7 @@ Vue.use(VueRouter);
 import MainView from '../views/MainView.vue';
 import PostsView from '../views/PostsView.vue';
 import NewsView from '../views/NewsView.vue';
+import AboutView from '../views/AboutView.vue';
 import Contents from '../components/common/Contents';
 import Dashboard from '../components/common/Dashboard';
 
@@ -22,12 +23,16 @@ const router = new VueRouter({
         component: MainView,
     },
     { 
+        path: '/news', 
+        component: NewsView
+    },
+    { 
         path: '/posts', 
         component: PostsView
     },
     { 
-        path: '/news', 
-        component: NewsView
+        path: '/about', 
+        component: AboutView
     },
     { 
         path: '/myPage',
