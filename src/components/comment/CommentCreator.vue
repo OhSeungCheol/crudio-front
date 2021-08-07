@@ -1,16 +1,11 @@
 <template>
     <div id='commentCreator'>
-        <v-form
-			ref="form"
-			v-model="valid"
-			lazy-validation
-		>
+        <v-form>
 			<v-text-field
 				v-model="message"
 				label="Comment"
 				required
 			></v-text-field>
-
 		</v-form>
         <v-btn @click="addCommentCard">Save</v-btn>
     </div>
