@@ -14,7 +14,7 @@
         <comment-creator
             @addCommentCard="addCommentCard"
         ></comment-creator>
-        <div v-for="comment in comments" :key="comment">
+        <div v-for="(comment, index) in comments" :key="index">
             <comment-card
                 v-bind:comment="comment"
             ></comment-card>
