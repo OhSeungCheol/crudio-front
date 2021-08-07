@@ -9,6 +9,7 @@ Vue.use(VueRouter);
 
 import MainView from '../views/MainView.vue';
 import PostsView from '../views/PostsView.vue';
+import NewsView from '../views/NewsView.vue';
 import Contents from '../components/common/Contents';
 import Dashboard from '../components/common/Dashboard';
 
@@ -25,11 +26,15 @@ const router = new VueRouter({
         component: PostsView
     },
     { 
-        path: '*',
+        path: '/news', 
+        component: NewsView
+    },
+    { 
+        path: '/myPage',
         component: Contents,
         children:[
             {
-                path: 'dashboard', component: Dashboard
+                path: '', component: Dashboard
             },
         ]
     },

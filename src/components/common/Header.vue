@@ -18,8 +18,10 @@
 
         <v-tabs v-model="selectedTab" align-with-title>
             <v-tab class="pa-0 ma-0" style="min-width:0px" key='0'/>
-            <v-tab to="dashboard" tag="div">Dashboard</v-tab>
+            <v-tab to="news" tag="div">News</v-tab>
             <v-tab to="posts" tag="div">Posts</v-tab>
+            <!-- MyPage 는 추후 우측에 톱니바퀴 아이콘으로 뺄 예정 -->
+            <v-tab to="myPage" tag="div">MyPageButton</v-tab>
         </v-tabs>
 
         <v-btn icon>
