@@ -1,6 +1,6 @@
 <template>
     <div id="commentCardDiv">
-            {{comment.name}}
+            <b>{{comment.name}}</b>
             <v-card-actions>
                 {{comment.message}}
             </v-card-actions>

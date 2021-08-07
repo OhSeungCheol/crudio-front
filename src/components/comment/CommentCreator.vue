@@ -7,7 +7,6 @@
 		>
 			<v-text-field
 				v-model="message"
-				:counter="10"
 				label="Comment"
 				required
 			></v-text-field>
