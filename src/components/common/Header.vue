@@ -30,7 +30,6 @@
 </template>
 
 <script>
-    import mainRouter from '../../router/MainRouter';
     export default {
         data: () => ({
             selectedTab: 0,
@@ -42,7 +41,6 @@
                 this.selectedTab = 0;
             }
         },
-        components: mainRouter,
     }
 </script>
 
