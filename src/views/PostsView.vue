@@ -37,8 +37,8 @@ export default {
     },
     data: () => {
         return {
-            items: dummyPosts,
-            message: ''
+            items: [],
+            message: '',
         }
     },
     methods: {
@@ -48,6 +48,9 @@ export default {
             this.items.push(card);
         },
     },
+    created() {
+        this.items.push(...dummyPosts());
+    }
 }
 </script>
 
