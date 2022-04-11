@@ -1,29 +1,26 @@
 <template>
-    <v-col
-    cols="6"
-    md="3"
-    >
   <v-card
     class="mx-auto"
     max-width="344"
   >
     <v-img
-      src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+      v-bind:src="news.urlToImage"
       height="200px"
     ></v-img>
 
     <v-card-title>
-      Top western road trips
+      {{news.title}}
     </v-card-title>
 
     <v-card-subtitle>
-      1,000 miles of wonder
+      {{news.publishedAt}}
     </v-card-subtitle>
 
     <v-card-actions>
       <v-btn
         color="orange lighten-2"
         text
+        v-on:click="openLink(news.url)"
       >
         Explore
       </v-btn>
@@ -43,19 +40,26 @@
         <v-divider></v-divider>
 
         <v-card-text>
-          I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for sleeping, soldier, not with all the bed making you'll be doing. Then we'll go with that data file! Hey, you add a one and two zeros to that or we walk! You're going to do his laundry? I've got to find a way to escape.
+          {{news.description}}
         </v-card-text>
       </div>
     </v-expand-transition>
   </v-card>
-      </v-col>
-
 </template>
+
 <script>
     export default {
         data: () => ({
             show: false,
         }),
+        props: {
+          news: Object
+        },
+        methods: {
+          openLink: (url) => {
+            window.open(url, '_blank').focus();
+          }
+        }
     }
 </script>
 <style scoped>
