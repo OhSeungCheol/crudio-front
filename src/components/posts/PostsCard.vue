@@ -12,9 +12,9 @@
         </v-card-actions>
 
         <comment-creator
-            @addCommentCard="addCommentCard"
+            @addComment="addComment"
         ></comment-creator>
-        <div v-for="(comment, index) in comments" :key="index">
+        <div v-for="(comment, index) in item.comments" :key="index">
             <comment-card
                 v-bind:comment="comment"
             ></comment-card>
@@ -34,18 +34,14 @@
         },
         props: ['item'],
         methods: {
-            addCommentCard(comment){
-                this.comments.push(comment)
+            addComment(comment){
+                comment['postId'] = this.item.id;
+                this.item.comments.push(comment)
             }
         },
         data: () => {
             return {
-                comments: [
-                    {
-                        name: 'tempName',
-                        message: 'tempMessage',
-                    }
-                ]
+
             }
         }
     }

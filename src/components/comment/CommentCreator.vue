@@ -7,7 +7,7 @@
 				required
 			></v-text-field>
 		</v-form>
-        <v-btn @click="addCommentCard">Save</v-btn>
+        <v-btn @click="addComment">Save</v-btn>
     </div>
 </template>
 
@@ -18,12 +18,12 @@
             message: '',
         }),
         methods: {
-            addCommentCard() {
+            addComment() {
                 if(this.message.trim() == ''){
                     alert('Input your message');
                     return;
                 } 
-                this.$emit("addCommentCard", {name: this.name, message: this.message});
+                this.$emit("addComment", {name: this.name, message: this.message});
                 this.message = '';
             },
         }

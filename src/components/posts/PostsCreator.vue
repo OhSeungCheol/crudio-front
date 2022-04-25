@@ -25,7 +25,7 @@
                     alert('Input your message');
                     return;
                 } 
-                this.$emit("addPostCard", {name: this.name, message: this.message});
+                this.$emit("addPostCard", {name: this.name, message: this.message, comments: []});
                 this.message = '';
             },
         }
