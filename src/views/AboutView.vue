@@ -2,12 +2,18 @@
     <v-main>
         <v-container fluid>
             About view
+            <counter></counter>
         </v-container>
     </v-main>
 </template>
 
 <script>
+import counter from '../components/counter.vue';
+
 export default {
+    components: {
+        counter
+    },
 }
 </script>
 
