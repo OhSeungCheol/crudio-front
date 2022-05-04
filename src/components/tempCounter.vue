@@ -12,7 +12,7 @@
 <script>
 import store from '../store'
 export default {
-	computed: { count: () => store.state.count },
+	computed: { count: () => store.state.counterStore.count },
 	methods: {
 		add: () => store.commit('add'),
 		add2: () => store.commit('add', 2),
