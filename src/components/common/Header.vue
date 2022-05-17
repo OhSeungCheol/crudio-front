@@ -26,6 +26,13 @@
         <v-btn icon to="myPage" @click="selectExternalTab">
             <v-icon >mdi-account</v-icon>
         </v-btn>
+        <v-btn
+            color="secondary"
+            elevation="4"
+            to="login"
+            @click="selectExternalTab"
+            >
+        LogIn</v-btn>
     </v-app-bar>
 </template>
 

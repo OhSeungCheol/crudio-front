@@ -11,6 +11,7 @@ import MainView from '../views/MainView.vue';
 import PostsView from '../views/PostsView.vue';
 import NewsView from '../views/NewsView.vue';
 import AboutView from '../views/AboutView.vue';
+import LoginView from '../views/LoginView.vue';
 import Contents from '../components/common/Contents';
 import Dashboard from '../components/common/Dashboard';
 
@@ -18,31 +19,35 @@ import Dashboard from '../components/common/Dashboard';
 const router = new VueRouter({
     mode: 'history',
     routes: [
-    { 
-        path: '/', 
-        component: MainView,
-    },
-    { 
-        path: '/news', 
-        component: NewsView
-    },
-    { 
-        path: '/posts', 
-        component: PostsView
-    },
-    { 
-        path: '/about', 
-        component: AboutView
-    },
-    { 
-        path: '/myPage',
-        component: Contents,
-        children:[
-            {
-                path: '', component: Dashboard
-            },
-        ]
-    },
+        { 
+            path: '/', 
+            component: MainView,
+        },
+        { 
+            path: '/news', 
+            component: NewsView
+        },
+        { 
+            path: '/posts', 
+            component: PostsView
+        },
+        { 
+            path: '/about', 
+            component: AboutView
+        },
+        { 
+            path: '/myPage',
+            component: Contents,
+            children:[
+                {
+                    path: '', component: Dashboard
+                },
+            ]
+        },
+        { 
+            path: '/login', 
+            component: LoginView
+        },
     ]
 })
 
