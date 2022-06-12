@@ -12,6 +12,7 @@ import PostsView from '../views/PostsView.vue';
 import NewsView from '../views/NewsView.vue';
 import AboutView from '../views/AboutView.vue';
 import LoginView from '../views/LoginView.vue';
+import SingupView from '../views/SingupView.vue';
 import Contents from '../components/common/Contents';
 import Dashboard from '../components/common/Dashboard';
 
@@ -47,6 +48,10 @@ const router = new VueRouter({
         { 
             path: '/login', 
             component: LoginView
+        },
+        { 
+            path: '/singup', 
+            component: SingupView
         },
     ]
 })
