@@ -23,7 +23,7 @@
         v-model="password"
         :rules="passwordRules"
         :counter="10"
-        :type="show4 ? 'text' : 'password'"
+        :type="'password'"
         label="password"
         required
       ></v-text-field>
@@ -53,7 +53,15 @@
     data: () => ({
       valid: true,
       id: '',
+      idRules: [
+        v => !!v || 'ID is required',
+        v => (v && v.length >= 4) || 'ID must be more than 4 characters',
+      ],
       password: '',
+      passwordRules: [
+        v => !!v || 'Password is required',
+        v => (v && v.length >= 4) || 'Password must be more than 4 length',
+      ],
     }),
 
     methods: {
@@ -73,6 +81,7 @@
           // alert(store.getters.isLogined) -> true
 
           alert('Login Successful');
+          location.href="/";
         } else {
           alert('Login Fail');
         }
