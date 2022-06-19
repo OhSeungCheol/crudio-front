@@ -1,5 +1,6 @@
 <template>
 	<div>
+		<button @click="ajaxTest">test</button>
 		<h1>{{count}}</h1>
 		<button @click="add">Add 1</button>
 		<button @click="add2">Add 2</button>
@@ -17,7 +18,16 @@ export default {
 		add: () => store.commit('add'),
 		add2: () => store.commit('add', 2),
 		addThreeAsync: () => store.dispatch('addThreeAsync'),
-		subtract: (payload) => store.commit('subtract', +payload)
+		subtract: (payload) => store.commit('subtract', +payload),
+		ajaxTest: () => {
+			const uri = '/test1';
+			fetch(uri, {method: 'get'})
+				.then(response => response.json())
+				.then(response => {
+					alert(response);
+				})
+
+		}		
 	}
 }
 </script>
