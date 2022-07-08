@@ -10,12 +10,16 @@
       v-model="valid"
       lazy-validation
       style="margin:40px"
+      id="loginForm"
+      method="post"
     >
       <v-text-field
         v-model="id"
         :counter="10"
         :rules="idRules"
         label="id"
+        id="username"
+        name="username"
         required
       ></v-text-field>
 
@@ -25,8 +29,16 @@
         :counter="10"
         :type="'password'"
         label="password"
+        id="password"
+        name="password"
         required
       ></v-text-field>
+
+      <p style="color:red; font-size:20pt;">
+        <center>
+          {{$route.query.message}}
+        </center>
+      </p>
 
       <v-btn
         :disabled="!valid"
@@ -48,7 +60,9 @@
 </template>
 
 <script>
-  import store from '../../store'
+  import store from '../../store';
+  import { doLogin } from '../../api';
+
   export default {
     data: () => ({
       valid: true,
@@ -66,24 +80,22 @@
 
     methods: {
       signin () {
-        let login = false;
         if(this.id != '' && this.password != ''){
-          // TODO
-          // Call SignInAPI
-  
-          // if successfull authentication, change login to 'true'
-          login = true;
-        }
 
-        if(login){
-          // alert(store.getters.isLogined) -> false
-          store.commit('login');
-          // alert(store.getters.isLogined) -> true
 
-          alert('Login Successful');
-          location.href="/";
-        } else {
-          alert('Login Fail');
+          const form = document.getElementById('loginForm');
+          doLogin(form)
+          .then((response) => { 
+            console.log(response.data);
+            // alert(store.getters.isLogined) -> false
+            store.commit('login');
+            // alert(store.getters.isLogined) -> true
+
+            alert('Login Successful');
+          }).catch(function(error) {
+            console.log(error);
+            alert('Login Fail');
+          });
         }
       }
     },
