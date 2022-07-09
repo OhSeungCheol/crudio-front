@@ -8,14 +8,9 @@ import axios from 'axios'
 //     alert(error);
 //   });
 const callApi = (uri, data, method = 'get') => {
-  console.log(method);
   if(method != null && method.toLowerCase() == 'post'){
-    console.log('asd');
-    return axios.post(uri, data, {
-      headers: { 'content-type': 'application/json' }
-    });
+    return axios.post(uri, data);
   } else {
-    console.log('asd12');
     return axios.get(uri, data);
   }
 };
@@ -26,9 +21,8 @@ export const fetchTestData = (data) => {
 
 export const doLogin = (form) => {
   // TODO : 공통 프로퍼티화 
-  // const loginUri = 'http://localhost:8080/api/login';
   const loginUri = '/api/login';
-  form.action = loginUri;
-  form.submit();
+  const data = new FormData(form);
+  return callApi(loginUri, data, 'post')
 }
 
