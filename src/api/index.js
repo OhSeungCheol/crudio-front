@@ -26,3 +26,10 @@ export const doLogin = (form) => {
   return callApi(loginUri, data, 'post')
 }
 
+export const getTicketList = (pageNumber = 1) => {
+  const uri = '/api/ticket/readAll'
+  const params = {
+    pageNumber
+  }
+  return callApi(uri, params);
+}

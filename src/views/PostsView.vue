@@ -49,7 +49,13 @@ export default {
         },
     },
     created() {
-        this.items.push(...dummyPosts());
+        getTicketList()
+        .then((response) => {
+            this.items.push(...response.data);
+        })
+        .catch((error) => {
+            console.log(error);
+        })
     }
 }
 </script>
