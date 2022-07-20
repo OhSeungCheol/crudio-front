@@ -5,7 +5,7 @@
         shaped
     >
         <v-card-title>
-            {{item.name}}
+            {{item.writer}}
         </v-card-title>
         <v-card-actions>
             {{item.message}}

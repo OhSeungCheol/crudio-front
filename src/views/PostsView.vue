@@ -7,13 +7,13 @@
             </div>
 
             <div class="child" style="flex:4;">
-                <posts-creator
+                <creator
                     @addPostCard="addPostCard"
-                ></posts-creator>
+                ></creator>
                 <div v-for="item in items.slice().reverse()" :key="item.id" style="margin-bottom: 30px; margin-top: 30px">
-                    <posts-card
+                    <card
                         v-bind:item="item"
-                    ></posts-card>
+                    ></card>
                 </div>
             </div>
 
@@ -26,14 +26,14 @@
 </template>
 
 <script>
-import PostsCard from '../components/posts/PostsCard.vue';
-import PostsCreator from '../components/posts/PostsCreator.vue';
-import dummyPosts from '../dummyData/PostsData';
+import Card from '../components/card/Card.vue';
+import Creator from '../components/card/Creator.vue';
+import { getCardList } from '../api';
 
 export default {
     components: {
-        PostsCreator,
-        PostsCard
+        Creator,
+        Card
     },
     data: () => {
         return {
@@ -49,7 +49,7 @@ export default {
         },
     },
     created() {
-        getTicketList()
+        getCardList()
         .then((response) => {
             this.items.push(...response.data);
         })

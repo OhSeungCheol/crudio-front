@@ -26,8 +26,8 @@ export const doLogin = (form) => {
   return callApi(loginUri, data, 'post')
 }
 
-export const getTicketList = (pageNumber = 1) => {
-  const uri = '/api/ticket/readAll'
+export const getCardList = (pageNumber = 1) => {
+  const uri = '/api/card/readAll'
   const params = {
     pageNumber
   }

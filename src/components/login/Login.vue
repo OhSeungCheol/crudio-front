@@ -86,6 +86,8 @@
           const form = document.getElementById('loginForm');
           doLogin(form)
           .then((response) => { 
+            // TODO : 401 받았을 때 실패 하도록 수정, 200 받았을 때(?) 로그인 성공하도록 수정
+
             console.log(response.data);
             // alert(store.getters.isLogined) -> false
             store.commit('login');
