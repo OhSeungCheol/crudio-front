@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from 'axios';
 
 // 사용 예시
 //  callApi(uri, method)
@@ -24,7 +24,7 @@ export const doLogin = (form) => {
   const loginUri = '/api/login';
   const data = new FormData(form);
   return callApi(loginUri, data, 'post')
-}
+};
 
 export const getCardList = (pageNumber = 1) => {
   const uri = '/api/card/readAll'
@@ -32,4 +32,13 @@ export const getCardList = (pageNumber = 1) => {
     pageNumber
   }
   return callApi(uri, params);
-}
+};
+
+export const saveCard = (card) => {
+  const uri = '/api/card/create'
+  const params = {
+      ...card
+  }
+  return callApi(uri, params, 'post');
+};
+

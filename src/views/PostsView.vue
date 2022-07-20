@@ -28,7 +28,7 @@
 <script>
 import Card from '../components/card/Card.vue';
 import Creator from '../components/card/Creator.vue';
-import { getCardList } from '../api';
+import { getCardList, saveCard } from '../api';
 
 export default {
     components: {
@@ -43,9 +43,19 @@ export default {
     },
     methods: {
         addPostCard(card){
-            // create PostCard By API
-            // if success, reload items
-            this.items.push(card);
+            saveCard(card)
+            .then((response) => {
+                // 서버에 카드 추가 작업 성공 시, 웹 뷰에도 추가
+                if(response.status == 200){
+                    this.items.push(card);
+                } else {
+                    alert(response.status);
+                }
+            })
+            .catch((error) => {
+                alert(error);
+                console.log(error);
+            })
         },
     },
     created() {
