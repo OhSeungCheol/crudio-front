@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+const axiosConfig = {headers: {"Content-Type": 'application/json'}};
 // 사용 예시
 //  callApi(uri, method)
 //   .then(function(response) {
@@ -9,9 +10,9 @@ import axios from 'axios';
 //   });
 const callApi = (uri, data, method = 'get') => {
   if(method != null && method.toLowerCase() == 'post'){
-    return axios.post(uri, data);
+    return axios.post(uri, data, axiosConfig);
   } else {
-    return axios.get(uri, data);
+    return axios.get(uri, data, axiosConfig);
   }
 };
 
@@ -42,3 +43,10 @@ export const saveCard = (card) => {
   return callApi(uri, params, 'post');
 };
 
+export const deleteCard = (id) => {
+  const uri = '/api/card/delete'
+  // const params = {
+  //     id
+  // }
+  return callApi(uri, id, 'post');
+};

@@ -10,7 +10,8 @@
         <v-card-actions>
             {{item.message}}
         </v-card-actions>
-
+        <!-- <v-btn @click="addComment">update</v-btn> -->
+        <v-btn @click="deleteCard(item.id)">delete</v-btn>
         <comment-creator
             @addComment="addComment"
         ></comment-creator>
@@ -27,7 +28,8 @@
 <script>
     import CommentCreator from '../comment/CommentCreator.vue' 
     import CommentCard from '../comment/CommentCard.vue' 
-    export default {
+
+export default {
         components: { 
             CommentCreator
             , CommentCard
@@ -37,6 +39,9 @@
             addComment(comment){
                 comment['postId'] = this.item.id;
                 this.item.comments.push(comment)
+            },
+            deleteCard(id) {
+                this.$emit("deleteCard", id);
             }
         },
         data: () => {

@@ -10,8 +10,9 @@
                 <creator
                     @addPostCard="addPostCard"
                 ></creator>
-                <div v-for="item in items.slice().reverse()" :key="item.id" style="margin-bottom: 30px; margin-top: 30px">
+                <div v-for="item in items" :key="item.id" style="margin-bottom: 30px; margin-top: 30px">
                     <card
+                        @deleteCard="deleteCard"
                         v-bind:item="item"
                     ></card>
                 </div>
@@ -28,7 +29,7 @@
 <script>
 import Card from '../components/card/Card.vue';
 import Creator from '../components/card/Creator.vue';
-import { getCardList, saveCard } from '../api';
+import { getCardList, saveCard, deleteCard } from '../api';
 
 export default {
     components: {
@@ -57,6 +58,26 @@ export default {
                 console.log(error);
             })
         },
+        deleteCard(id) {
+            deleteCard(id)
+            .then((response) => {
+                if(response.status == 200){
+                    // 웹뷰에서 아이템 삭제
+                    this.items.forEach((item, index) => {
+                        if(item.id == id){
+                            this.items.splice(index, 1);
+                            return;
+                        }
+                    });
+                    alert('success');
+                } else {
+                    alert('fail');
+                }
+            })
+            .catch((error) => {
+                alert(error);
+            })
+        }
     },
     created() {
         getCardList()
