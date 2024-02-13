@@ -23,14 +23,31 @@
             <v-tab to="about" tag="div">About</v-tab>
         </v-tabs>
 
-        <v-btn icon to="myPage" @click="selectExternalTab">
-            <v-icon >mdi-account</v-icon>
-        </v-btn>
+        <div v-if="isLogined == true">
+            <v-btn icon to="myPage" @click="selectExternalTab">
+                <v-icon >mdi-account</v-icon>
+            </v-btn>
+        </div>
+        <div v-else>
+            <v-btn
+                color="secondary"
+                elevation="4"
+                to="login"
+                @click="selectExternalTab"
+                >
+            LogIn</v-btn>
+        </div>
     </v-app-bar>
 </template>
 
 <script>
+    import store from '../../store'
     export default {
+        computed: {
+            isLogined: () => {
+                return store.getters.isLogined;
+            }
+        },
         data: () => ({
             selectedTab: 0,
         }),

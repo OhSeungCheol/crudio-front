@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import counter from '../components/counter.vue';
+import counter from '../components/tempCounter.vue';
 
 export default {
     components: {

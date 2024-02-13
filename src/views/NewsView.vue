@@ -26,7 +26,6 @@ export default {
     created() {
         const response = dummyNewsList();
         this.newsList = response.articles;
-        console.log(this.newsList);
     }
 }
 </script>

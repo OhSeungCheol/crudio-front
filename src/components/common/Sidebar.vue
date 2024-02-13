@@ -40,6 +40,7 @@
           v-for="item in items"
           :key="item.title"
           link
+          @click="menuActionClick(item.action)"
         >
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
@@ -55,6 +56,7 @@
 </template>
 
 <script>
+  import store from '../../store'
   export default {
     data () {
       return {
@@ -62,9 +64,22 @@
           { title: 'Dashboard', icon: 'mdi-view-dashboard' },
           { title: 'Photos', icon: 'mdi-image' },
           { title: 'About', icon: 'mdi-help-box' },
+          { title: 'logout', icon: 'mdi-cursor-default', action: 'logout'},
         ],
         right: null,
       }
     },
+    methods: {
+      menuActionClick(action) {
+        if(action == 'logout'){
+          // alert(store.getters.isLogined) -> true (maybe..)
+          store.commit('logout');
+          // alert(store.getters.isLogined) -> false
+
+          alert('Logout Successful');
+          location.href="/login";
+        }
+      }
+    }
   }
 </script>

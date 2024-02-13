@@ -1,7 +1,9 @@
 <template>
     <v-main>
         <v-container fluid>
-            CrudIO Main Page
+            <v-img
+                :src="require('../assets/main.png')"
+            ></v-img>
         </v-container>
     </v-main>
 </template>

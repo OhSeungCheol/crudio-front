@@ -16,7 +16,7 @@
 <script>
     export default {
         data: () => ({
-            name: 'Guest',
+            writer: 'Guest',
             message: '',
         }),
         methods: {
@@ -25,7 +25,7 @@
                     alert('Input your message');
                     return;
                 } 
-                this.$emit("addPostCard", {name: this.name, message: this.message, comments: []});
+                this.$emit("addPostCard", {writer: this.writer, message: this.message, comments: []});
                 this.message = '';
             },
         }

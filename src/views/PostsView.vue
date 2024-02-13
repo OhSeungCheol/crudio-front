@@ -7,13 +7,14 @@
             </div>
 
             <div class="child" style="flex:4;">
-                <posts-creator
+                <creator
                     @addPostCard="addPostCard"
-                ></posts-creator>
-                <div v-for="item in items.slice().reverse()" :key="item.id" style="margin-bottom: 30px; margin-top: 30px">
-                    <posts-card
+                ></creator>
+                <div v-for="item in items" :key="item.id" style="margin-bottom: 30px; margin-top: 30px">
+                    <card
+                        @deleteCard="deleteCard"
                         v-bind:item="item"
-                    ></posts-card>
+                    ></card>
                 </div>
             </div>
 
@@ -26,14 +27,14 @@
 </template>
 
 <script>
-import PostsCard from '../components/posts/PostsCard.vue';
-import PostsCreator from '../components/posts/PostsCreator.vue';
-import dummyPosts from '../dummyData/PostsData';
+import Card from '../components/card/Card.vue';
+import Creator from '../components/card/Creator.vue';
+import { getCardList, saveCard, deleteCard } from '../api';
 
 export default {
     components: {
-        PostsCreator,
-        PostsCard
+        Creator,
+        Card
     },
     data: () => {
         return {
@@ -43,13 +44,49 @@ export default {
     },
     methods: {
         addPostCard(card){
-            // create PostCard By API
-            // if success, reload items
-            this.items.push(card);
+            saveCard(card)
+            .then((response) => {
+                // 서버에 카드 추가 작업 성공 시, 웹 뷰에도 추가
+                if(response.status == 200){
+                    this.items.push(card);
+                } else {
+                    alert(response.status);
+                }
+            })
+            .catch((error) => {
+                alert(error);
+                console.log(error);
+            })
         },
+        deleteCard(id) {
+            deleteCard(id)
+            .then((response) => {
+                if(response.status == 200){
+                    // 웹뷰에서 아이템 삭제
+                    this.items.forEach((item, index) => {
+                        if(item.id == id){
+                            this.items.splice(index, 1);
+                            return;
+                        }
+                    });
+                    alert('success');
+                } else {
+                    alert('fail');
+                }
+            })
+            .catch((error) => {
+                alert(error);
+            })
+        }
     },
     created() {
-        this.items.push(...dummyPosts());
+        getCardList()
+        .then((response) => {
+            this.items.push(...response.data);
+        })
+        .catch((error) => {
+            console.log(error);
+        })
     }
 }
 </script>

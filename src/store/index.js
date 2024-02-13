@@ -1,25 +1,18 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import createPersistedState from 'vuex-persistedstate';
 
 Vue.use(Vuex);
 
+import counterStore from './modules/counterStore';
+import sessionStore from './modules/sessionStore';
+
 export default new Vuex.Store({
-    state: {
-		count: 0
+	modules: {
+		counterStore,
+		sessionStore
 	},
-	mutations: {
-		add(state, payload) {
-			// If we get a payload, add it to count
-			// Else, just add one to count
-			payload ? (state.count += payload) : state.count++;
-		},
-		subtract(state, payload) {
-			payload ? (state.count -= payload) : state.count--;
-		}
-	},
-	actions: {
-		addThreeAsync({ commit }) {
-			setTimeout(() => commit('add', 3), 3000);
-		}
-	}
+	plugins: [createPersistedState({
+        paths: ["sessionStore"]
+    })]
 });
